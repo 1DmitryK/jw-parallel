@@ -9,17 +9,17 @@
     'daily-text': {
       title: 'Стих на день / Щоденний текст',
       urls: {
-        uk: 'https://www.jw.org/uk/бібліотека/щоденний-текст/',
-        ru: 'https://www.jw.org/ru/библиотека/стих-на-день/',
-        en: 'https://www.jw.org/en/library/daily-text/'
+        uk: 'https://wol.jw.org/uk/wol/h/r15/lp-k',
+        ru: 'https://wol.jw.org/ru/wol/h/r2/lp-u',
+        en: 'https://wol.jw.org/en/wol/h/r1/lp-e'
       }
     },
     'library': {
-      title: 'Библиотека / Бібліотека',
+      title: 'Главная / Бібліотека',
       urls: {
-        uk: 'https://www.jw.org/uk/бібліотека/',
-        ru: 'https://www.jw.org/ru/библиотека/',
-        en: 'https://www.jw.org/en/library/'
+        uk: 'https://www.jw.org/uk/',
+        ru: 'https://www.jw.org/ru/',
+        en: 'https://www.jw.org/en/'
       }
     }
   };
