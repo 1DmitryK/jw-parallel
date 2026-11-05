@@ -14,36 +14,12 @@
         en: 'https://www.jw.org/en/library/daily-text/'
       }
     },
-    'bible': {
-      title: 'Библия (NWT) / Біблія',
+    'library': {
+      title: 'Библиотека / Бібліотека',
       urls: {
-        uk: 'https://www.jw.org/uk/бібліотека/біблія/nwt/книги/',
-        ru: 'https://www.jw.org/ru/библиотека/библия/nwt/книги/',
-        en: 'https://www.jw.org/en/library/bible/nwt/books/'
-      }
-    },
-    'watchtower': {
-      title: 'Сторожевая башня / Сторожова вежа',
-      urls: {
-        uk: 'https://www.jw.org/uk/бібліотека/журнали/',
-        ru: 'https://www.jw.org/ru/библиотека/журналы/',
-        en: 'https://www.jw.org/en/library/magazines/'
-      }
-    },
-    'workbook': {
-      title: 'Рабочая тетрадь / Робочий зошит',
-      urls: {
-        uk: 'https://www.jw.org/uk/бібліотека/зошит-для-зібрання/',
-        ru: 'https://www.jw.org/ru/библиотека/тетрадь-жизнь-и-служение/',
-        en: 'https://www.jw.org/en/library/jw-meeting-workbook/'
-      }
-    },
-    'wol': {
-      title: 'Онлайн-библиотека (WOL)',
-      urls: {
-        uk: 'https://wol.jw.org/uk/wol/h/r15/lp-u',
-        ru: 'https://wol.jw.org/ru/wol/h/r2/lp-u',
-        en: 'https://wol.jw.org/en/wol/h/r1/lp-e'
+        uk: 'https://www.jw.org/uk/бібліотека/',
+        ru: 'https://www.jw.org/ru/библиотека/',
+        en: 'https://www.jw.org/en/library/'
       }
     }
   };
@@ -95,6 +71,14 @@
         if (targetLang === 'uk') return 'https://wol.jw.org/uk/wol/h/r15/lp-u';
         if (targetLang === 'ru') return 'https://wol.jw.org/ru/wol/h/r2/lp-u';
         if (targetLang === 'en') return 'https://wol.jw.org/en/wol/h/r1/lp-e';
+      }
+
+      // Ukrainian <-> Russian <-> English Library mapping
+      if (url.includes('/бібліотека/') || url.includes('/библиотека/') || url.includes('/library/')) {
+        const sub = url.split(/\/(?:бібліотека|библиотека|library)\/?/)[1] || '';
+        if (targetLang === 'uk') return `https://www.jw.org/uk/бібліотека/${sub}`;
+        if (targetLang === 'ru') return `https://www.jw.org/ru/библиотека/${sub}`;
+        if (targetLang === 'en') return `https://www.jw.org/en/library/${sub}`;
       }
 
       // Check current preset
@@ -338,9 +322,7 @@
   // --- Bookmarks (Local Storage) ---
   const DEFAULT_BOOKMARKS = [
     { title: 'Стих на день (UA / RU)', u1: PRESETS['daily-text'].urls.uk, u2: PRESETS['daily-text'].urls.ru },
-    { title: 'Библия (UA / RU)', u1: PRESETS['bible'].urls.uk, u2: PRESETS['bible'].urls.ru },
-    { title: 'Сторожевая башня (UA / RU)', u1: PRESETS['watchtower'].urls.uk, u2: PRESETS['watchtower'].urls.ru },
-    { title: 'Рабочая тетрадь (UA / RU)', u1: PRESETS['workbook'].urls.uk, u2: PRESETS['workbook'].urls.ru }
+    { title: 'Библиотека (UA / RU)', u1: PRESETS['library'].urls.uk, u2: PRESETS['library'].urls.ru }
   ];
 
   function getBookmarks() {
